@@ -9,7 +9,6 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 
 	*argv = (char**)malloc(sizeof(char)*100);
 	strcpy(copy_buf, command);
-//	copy_buf[strlen(command)-1] = '\0';
 	parse = strtok(copy_buf, " \n");
 
 	while (parse!=NULL)
