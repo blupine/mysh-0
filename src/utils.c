@@ -9,8 +9,8 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 
 	*argv = (char**)malloc(sizeof(char)*100);
 	strcpy(copy_buf, command);
-	copy_buf[strlen(command)] = '\0';
-	parse = strtok(copy_buf, " ");
+//	copy_buf[strlen(command)-1] = '\0';
+	parse = strtok(copy_buf, " \n");
 
 	while (parse!=NULL)
 	{
@@ -19,10 +19,10 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 			parse = strtok(NULL, " ");
 			continue;
 		}
-		*(*argv + command_count) = (char*)malloc(sizeof(char)*strlen(parse)+1);
-		strcpy(*(*argv + command_count), parse);
-		
-		parse = strtok(NULL, " ");		
+		*(*argv + command_count) = (char*)malloc(sizeof(char)*strlen(parse));
+		strncpy(*(*argv + command_count), parse,strlen(parse)+1);
+
+		parse = strtok(NULL, " \n");
 		command_count++;
 	}
 	if(command_count==0)
