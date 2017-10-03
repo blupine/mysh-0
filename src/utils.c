@@ -1,13 +1,14 @@
 #include "utils.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 void mysh_parse_command(const char* command, int *argc, char*** argv)
 {
-	int command_count = 0;
+ 	int command_count = 0;
 	char copy_buf[8096];
 	char * parse;
 
-	*argv = (char**)malloc(sizeof(char)*100);
+	*argv = (char**)malloc(sizeof(char)*1024);
 	strcpy(copy_buf, command);
 	parse = strtok(copy_buf, " \n");
 
