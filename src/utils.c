@@ -1,7 +1,7 @@
 #include "utils.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 void mysh_parse_command(const char* command, int *argc, char*** argv)
 {
  	int command_count = 0;
