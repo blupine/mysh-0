@@ -28,10 +28,8 @@ int do_pwd(int argc, char** argv) {
 
 int validate_cd_argv(int argc, char** argv) {
 	struct stat buf;
-
 	if (argc == 2 && strcmp(*argv, "cd")==0 && access(*(argv+1), F_OK | R_OK ) ==0 )
 	{
-
 		if( stat(*(argv+1), &buf) < 0 )
 			return 0;
 		if(S_ISDIR(buf.st_mode))
