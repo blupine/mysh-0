@@ -8,7 +8,7 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 	char copy_buf[8096];
 	char * parse;
 
-	*argv = (char**)malloc(sizeof(char)*1024);
+	*argv = (char**)malloc(sizeof(char*)*64);
 	strcpy(copy_buf, command);
 	parse = strtok(copy_buf, " \n");
 
